@@ -1,0 +1,117 @@
+.nav-bar {
+    background-color: #eff1f3;
+    padding: 10px 0;
+}
+
+.olx-logo {
+    padding: 0 0 0 50px;
+}
+
+.location-search {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border: 2px solid #000;
+    border-radius: 4px;
+}
+
+.location-search svg {
+    font-size: 25px;
+}
+
+.location-search .input {
+    width: 100%;
+    padding: 0 10px;
+    outline: none;
+    border: none;
+    background-color: transparent;
+}
+
+.location-search:hover {
+    border: 2px solid #00ccb1;
+}
+
+.find-car {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.find-car .input {
+    width: 100%;
+    padding: 10px 20px;
+    outline: none;
+    background-color: transparent;
+    border: 2px solid #000;
+    border-radius: 4px 0 0 4px;
+}
+
+.find-car .input:hover {
+    border: 2px solid #00ccb1;
+}
+
+.find-car .search-box {
+    background-color: #002f34;
+    padding: 10px 20px;
+    border-radius: 0 4px 4px 0;
+    border: 2px solid;
+}
+
+.find-car svg {
+    font-size: 24px;
+    color: #fff;
+}
+
+.login-btn {
+    color: #002f34;
+    font-size: 18px;
+    font-weight: 600;
+    border-bottom: 2px solid;
+    text-decoration: none;
+}
+
+.login-sell-box {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0 100px !important;
+}
+
+.login-btn:hover {
+    border: none;
+}
+
+.sell-btn {
+    font-size: 15px;
+    font-weight: 600;
+    padding: 8px 35px;
+    margin: 0 20px;
+    border: 3px #00a2ff solid;
+    color: #002f34;
+    text-align: center;
+    background: #fff;
+    border-radius: 30px;
+    box-shadow: 0px 3px 5px #a9a9a9;
+}
+
+@media(max-width:768px){
+    .login-sell-box {
+        justify-content: center;
+        margin: 20px 0 5px; 
+    }
+}
+@media(max-width:425px){
+    .olx-logo {
+        padding: 0px 0 0 15px;
+    }
+    .location-search {
+        width: 80%;
+    }
+    .find-car {
+        margin: 10px 0;
+    }
+    .login-sell-box {
+        margin: 2px 0;
+    }
+}
