@@ -73,6 +73,19 @@
 .slick-dots li button:before {
     font-size: 25px;
 }
+.load-more-btn{
+    padding: 10px 30px;
+    background: #fff;
+    border: 2px solid #002f34;
+    color: #002f34;
+    margin: 40px 0 0;
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 4px;
+}
+.load-more-btn:hover{
+    outline: #002f34 solid 3px;
+}
 @media(max-width:768px){
     .slick-arrow.slick-prev {
         display:none !important;
