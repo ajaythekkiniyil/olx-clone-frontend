@@ -113,6 +113,21 @@ function Products(props) {
                                         </div>
                                     </div>
                                 </div>
+                                <div className="card-wrap p-1">
+                                    <div className="card">
+                                        {/* Favorite icon */}
+                                        <div className="favorite">
+                                            {
+                                                false ? <FaHeart /> : <FaRegHeart />
+                                            }
+                                        </div>
+                                        <img src="https://apollo-singapore.akamaized.net/v1/files/ecl4wgjepi901-IN/image;s=300x600;q=60" alt="" />
+                                        <div className="card-details">
+                                            <h3 className="price">400000</h3>
+                                            <p className="description">FACTORY OUTLET OFFERS 4K</p>
+                                        </div>
+                                    </div>
+                                </div>
                             </Slider>
                             :
                             <>

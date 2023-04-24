@@ -1,6 +1,25 @@
-*, body{
+*,
+body {
     box-sizing: border-box !important;
     margin: 0;
     padding: 0;
     font-family: 'Roboto', sans-serif;
+    scroll-behavior: smooth;
+}
+
+.scroll-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #ffffff;
+    /* box-shadow: 0 2px 8px 0 rgba(0,0,0,.15); */
+    border: 1px solid rgb(201, 201, 201) !important;
+    color: #000000;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+.scroll-top svg{
+    font-size: 20px;
 }

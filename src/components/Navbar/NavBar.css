@@ -95,22 +95,75 @@
     box-shadow: 0px 3px 5px #a9a9a9;
 }
 
-@media(max-width:768px){
+/* style for mobile navbar */
+span.open-nav {
+    padding: 10px;
+}
+
+.overlay {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    background-color: rgb(255, 255, 255);
+    overflow-x: hidden;
+    transition: 0.5s;
+}
+
+.overlay-content {
+    position: relative;
+    top: 25%;
+    width: 100%;
+    text-align: center;
+    margin-top: 30px;
+}
+
+
+.overlay a {
+    padding: 8px;
+    text-decoration: none;
+    font-size: 36px;
+    color: #002f34;
+    display: block;
+    transition: 0.3s;
+}
+
+.overlay a:hover,
+.overlay a:focus {
+    color: #00515a;
+}
+
+.overlay .closebtn {
+    position: absolute;
+    top: 0px;
+    left: 4px;
+    font-size: 33px;
+}
+
+/* style for mobile navbar */
+
+@media(max-width:768px) {
     .login-sell-box {
         justify-content: center;
-        margin: 20px 0 5px; 
+        margin: 20px 0 5px;
     }
 }
-@media(max-width:425px){
+
+@media(max-width:425px) {
     .olx-logo {
         padding: 0px 0 0 15px;
     }
+
     .location-search {
         width: 80%;
     }
+
     .find-car {
         margin: 10px 0;
     }
+
     .login-sell-box {
         margin: 2px 0;
     }
