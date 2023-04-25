@@ -1,6 +1,14 @@
+.nav-bar-wrap {
+    margin-bottom: 100px;
+}
+
 .nav-bar {
     background-color: #eff1f3;
     padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 2;
 }
 
 .olx-logo {
@@ -144,7 +152,94 @@ span.open-nav {
 
 /* style for mobile navbar */
 
+/* model/popup css */
+.modal-header {
+    border: none;
+    padding: 20px;
+}
+
+.modal-body {
+    padding: 0 20px;
+}
+
+.modal-content {
+    border: none;
+    border-radius: 4px;
+    box-shadow: none;
+    width: 400px;
+    margin: 0 auto;
+}
+
+.modal-body #first-step span {
+    cursor: pointer;
+    display: block;
+    margin: 20px;
+    border: 2px solid #002f34;
+    padding: 10px 35px;
+    border-radius: 4px;
+    color: #002f34;
+    font-size: 15px;
+    font-weight: 500;
+    text-align: left;
+}
+
+.modal-body #first-step span:hover {
+    outline: #002f34 1px solid;
+}
+
+.modal-header .btn-close {
+    font-size: 20px !important;
+}
+
+.login-quote {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.login-with-email {
+    font-size: 15px;
+    font-weight: 600;
+    color: #011f22;
+}
+.enter-phone{
+    cursor: pointer;
+    margin: 0 8px;
+    border: 2px solid #002f34;
+    padding: 10px 15px;
+    border-radius: 4px;
+    color: #002f34;
+    font-size: 15px;
+    font-weight: 500;
+    text-align: left;
+}
+
+.phone-next-btn{
+    background-color: #002f34;
+    padding: 10px 20px;
+    border-radius: 0 4px 4px 0;
+    border: 2px solid;
+    color: #fff;
+    width: 300px;
+}
+.verify{
+    position: relative;
+}
+.verify .back-arrow{
+    position: absolute;
+    font-size: 30px;
+    font-weight: 600;
+    top: -45px;
+    left: 0;
+    cursor: pointer;
+}
+
+/* model/popup css */
+
 @media(max-width:768px) {
+    .nav-bar-wrap {
+        margin-bottom: 170px;
+    }
+
     .login-sell-box {
         justify-content: center;
         margin: 20px 0 5px;
@@ -152,6 +247,18 @@ span.open-nav {
 }
 
 @media(max-width:425px) {
+    .nav-bar-wrap {
+        margin-bottom: 0;
+    }
+
+    .procuct-list {
+        margin: 15px 0 !important;
+    }
+
+    .procuct-list .container {
+        background-color: #fff !important;
+    }
+
     .olx-logo {
         padding: 0px 0 0 15px;
     }
@@ -166,5 +273,9 @@ span.open-nav {
 
     .login-sell-box {
         margin: 2px 0;
+    }
+
+    .login-btn {
+        border-bottom: none;
     }
 }

@@ -144,8 +144,8 @@ function Products(props) {
                             :
                             <>
                                 {
-                                    allProducts.slice(0, lazyLoadCount).map(product => (
-                                        <div className="card-wrap p-1 col-6 col-lg-3">
+                                    allProducts.slice(0, lazyLoadCount).map((product,index) => (
+                                        <div className="card-wrap p-1 col-6 col-lg-3" key={index}>
                                             <div className="card">
                                                 {/* Favorite icon */}
                                                 <div className="favorite">

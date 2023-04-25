@@ -84,7 +84,7 @@
     border-radius: 4px;
 }
 .load-more-btn:hover{
-    outline: #002f34 solid 3px;
+    outline: #002f34 solid 1px;
 }
 @media(max-width:768px){
     .slick-arrow.slick-prev {
