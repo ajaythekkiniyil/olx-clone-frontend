@@ -2,6 +2,7 @@ import './NavBar.css'
 import { AiOutlineSearch } from "react-icons/ai";
 import { FiAlignJustify } from "react-icons/fi";
 import SignupAndLogin from '../SignupAndLogin/SignupAndLogin';
+import Dropdown from 'react-bootstrap/Dropdown';
 
 // Here I write two nav-bar code one for large screen another for mobile device
 function Navbar() {
@@ -37,7 +38,18 @@ function Navbar() {
                             </div>
                         </div>
                         <div className="col-12 col-md-12 col-lg-3 p-0 login-sell-box">
-                            <a href="#" className='login-btn' data-bs-toggle="modal" data-bs-target="#exampleModal">Login</a>
+                            {/* <a href="#" className='login-btn' data-bs-toggle="modal" data-bs-target="#exampleModal">Login</a> */}
+                            <div className="user-dp">
+                                <Dropdown>
+                                    <Dropdown.Toggle>
+                                        <img src="https://statics.olx.in/external/base/img/avatar_2.png" alt="user image" />
+                                    </Dropdown.Toggle>
+                                    <Dropdown.Menu>
+                                        <p className='welcome-name'>Welcome, Ajay</p>
+                                        <a href="" className='view-edit-btn'>View and edit profile</a>
+                                    </Dropdown.Menu>
+                                </Dropdown>
+                            </div>
                             <button className='sell-btn'>SELL</button>
                         </div>
                     </div>
@@ -63,7 +75,7 @@ function Navbar() {
             {/* End for mobile device */}
 
             {/* model element will popup when user click login button, for signup and login  */}
-            <SignupAndLogin/>
+            <SignupAndLogin />
         </div>
     )
 }
