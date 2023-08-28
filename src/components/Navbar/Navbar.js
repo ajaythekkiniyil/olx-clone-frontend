@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import './NavBar.css'
 import { AiOutlineSearch } from "react-icons/ai";
 import { FiAlignJustify } from "react-icons/fi";
@@ -6,12 +7,24 @@ import Dropdown from 'react-bootstrap/Dropdown';
 
 // Here I write two nav-bar code one for large screen another for mobile device
 function Navbar() {
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const showModal = () => {
+        setIsModalOpen(true);
+    };
+    const handleOk = () => {
+        setIsModalOpen(false);
+    };
+    const handleCancel = () => {
+        setIsModalOpen(false);
+    };
+
     function openNav() {
         document.getElementById("myNav").style.width = "100%";
     }
     function closeNav() {
         document.getElementById("myNav").style.width = "0%";
     }
+
     return (
         <div className='nav-bar-wrap'>
             <section className="nav-bar d-none d-md-block">
@@ -38,8 +51,9 @@ function Navbar() {
                             </div>
                         </div>
                         <div className="col-12 col-md-12 col-lg-3 p-0 login-sell-box">
-                            {/* <a href="#" className='login-btn' data-bs-toggle="modal" data-bs-target="#exampleModal">Login</a> */}
-                            <div className="user-dp">
+                            <a style={{cursor:'pointer'}} className='login-btn' onClick={showModal}>Login</a>
+
+                            {/* <div className="user-dp">
                                 <Dropdown>
                                     <Dropdown.Toggle>
                                         <img src="https://statics.olx.in/external/base/img/avatar_2.png" alt="user image" />
@@ -49,7 +63,7 @@ function Navbar() {
                                         <a href="" className='view-edit-btn'>View and edit profile</a>
                                     </Dropdown.Menu>
                                 </Dropdown>
-                            </div>
+                            </div> */}
                             <button className='sell-btn'>SELL</button>
                         </div>
                     </div>
@@ -62,7 +76,7 @@ function Navbar() {
                     <div className="overlay-content">
                         <a href="#">About</a>
                         <a href="#">Services</a>
-                        <a href="#" className='login-btn' data-bs-toggle="modal" data-bs-target="#exampleModal">Login</a>
+                        <a className='login-btn' data-bs-toggle="modal" data-bs-target="#exampleModal">Login</a>
                     </div>
                 </div>
                 <span className='open-nav' onClick={openNav}><FiAlignJustify style={{ fontSize: 25 }} /></span>
@@ -75,7 +89,7 @@ function Navbar() {
             {/* End for mobile device */}
 
             {/* model element will popup when user click login button, for signup and login  */}
-            <SignupAndLogin />
+            <SignupAndLogin isModalOpen={isModalOpen} handleCancel={handleCancel}/>
         </div>
     )
 }

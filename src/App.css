@@ -25,7 +25,14 @@ body {
     font-size: 20px;
 }
 
-
-
-
-
+.login-with{
+    padding: 8px;
+    border: 1px solid #001a1d;
+    border-radius: 5px;
+    width: 90%;
+    margin: auto;
+    margin-top: 10px;
+    font-weight: 500;
+    font-size: 15px;
+    cursor: pointer;
+}

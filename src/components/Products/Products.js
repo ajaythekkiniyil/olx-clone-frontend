@@ -4,27 +4,20 @@ import PrevArrow from "./PrevArow";
 import './Products.css';
 import { FaRegHeart } from "react-icons/fa";
 import { FaHeart } from "react-icons/fa";
-import { useState } from "react";
+import { useState,useEffect } from "react";
+import axiosInstance from '../../axiosInstance'
 
 // This component used for slider and normal listing of all items
 // Checking isSlider condition
 function Products(props) {
     let { title, bgColor, isSlider } = props
-    const [allProducts, setAllProducts] = useState([
-        {
-            image: 'https://apollo-singapore.akamaized.net/v1/files/ecl4wgjepi901-IN/image;s=300x600;q=60',
-            price: 4000,
-            description: 'FACTORY OUTLET OFFERS 4K',
-            location: 'Kannur',
-            isFavorite: true,
-        },
-    ])
+    const [allProducts, setAllProducts] = useState([])
+
     // initial number of visible items this is used for achieve load more feature
-    const [lazyLoadCount, setLazyLoadCount] = useState(12);
+    const [lazyLoadCount, setLazyLoadCount] = useState(4);
 
     // counting product based on count arrange the slideToShow
     let sliderCount = 4
-
     var settings = {
         dots: false,
         infinite: true,
@@ -53,6 +46,15 @@ function Products(props) {
             }
         ]
     };
+
+    // useEffects
+    useEffect(()=>{
+        axiosInstance.get('/product/get-all-products').then((resp)=>{
+            if(resp.status === 200){
+                setAllProducts(resp.data.allProducts)
+            }
+        })
+    },[])
     return (
         <section className="procuct-list">
             <div className="container" style={{ background: `${bgColor}` }}>
@@ -144,7 +146,7 @@ function Products(props) {
                             :
                             <>
                                 {
-                                    allProducts.slice(0, lazyLoadCount).map((product,index) => (
+                                    allProducts.slice(0, lazyLoadCount).map((product, index) => (
                                         <div className="card-wrap p-1 col-6 col-lg-3" key={index}>
                                             <div className="card">
                                                 {/* Favorite icon */}
@@ -165,7 +167,7 @@ function Products(props) {
                                 <div className="col-12 text-center">
                                     <button
                                         className="load-more-btn"
-                                        onClick={()=>setLazyLoadCount(prev=> prev + 4)}
+                                        onClick={() => setLazyLoadCount(prev => prev + 4)}
                                     >
                                         Load more
                                     </button>
