@@ -1,12 +1,13 @@
 import { useState } from 'react';
-import './NavBar.css'
 import { AiOutlineSearch } from "react-icons/ai";
 import { FiAlignJustify } from "react-icons/fi";
 import SignupAndLogin from '../SignupAndLogin/SignupAndLogin';
 import Dropdown from 'react-bootstrap/Dropdown';
+import { Link } from 'react-router-dom';
 
 // Here I write two nav-bar code one for large screen another for mobile device
 function Navbar() {
+    const userLoggedIn = localStorage.getItem('userLoggedIn')
     const [isModalOpen, setIsModalOpen] = useState(false);
     const showModal = () => {
         setIsModalOpen(true);
@@ -16,6 +17,10 @@ function Navbar() {
     };
     const handleCancel = () => {
         setIsModalOpen(false);
+    };
+    const handleLogout = () => {
+        localStorage.clear()
+        window.location.reload()
     };
 
     function openNav() {
@@ -51,20 +56,33 @@ function Navbar() {
                             </div>
                         </div>
                         <div className="col-12 col-md-12 col-lg-3 p-0 login-sell-box">
-                            <a style={{cursor:'pointer'}} className='login-btn' onClick={showModal}>Login</a>
+                            {
+                                !userLoggedIn &&
+                                <a style={{ cursor: 'pointer' }} className='login-btn' onClick={showModal}>Login</a>
+                            }
 
-                            {/* <div className="user-dp">
-                                <Dropdown>
-                                    <Dropdown.Toggle>
-                                        <img src="https://statics.olx.in/external/base/img/avatar_2.png" alt="user image" />
-                                    </Dropdown.Toggle>
-                                    <Dropdown.Menu>
-                                        <p className='welcome-name'>Welcome, Ajay</p>
-                                        <a href="" className='view-edit-btn'>View and edit profile</a>
-                                    </Dropdown.Menu>
-                                </Dropdown>
-                            </div> */}
-                            <button className='sell-btn'>SELL</button>
+                            {
+                                userLoggedIn &&
+                                <div className="user-dp">
+                                    <Dropdown>
+                                        <Dropdown.Toggle>
+                                            <img src="https://statics.olx.in/external/base/img/avatar_2.png" alt="user image" />
+                                        </Dropdown.Toggle>
+                                        <Dropdown.Menu>
+                                            <p className='welcome-name'>Welcome, Ajay</p>
+                                            <Link to='/edit-profile' className='view-edit-btn'>View and edit profile</Link>
+                                            <br></br><br></br>
+                                            <p style={{ margin: '10px 0', cursor: 'pointer' }}
+                                                onClick={handleLogout}
+                                            >
+                                                Logout
+                                            </p>
+                                        </Dropdown.Menu>
+                                    </Dropdown>
+                                </div>
+                            }
+
+                            <Link to='/sell'><button className='sell-btn'>Sell</button></Link>
                         </div>
                     </div>
                 </div>
@@ -89,7 +107,7 @@ function Navbar() {
             {/* End for mobile device */}
 
             {/* model element will popup when user click login button, for signup and login  */}
-            <SignupAndLogin isModalOpen={isModalOpen} handleCancel={handleCancel}/>
+            <SignupAndLogin isModalOpen={isModalOpen} handleCancel={handleCancel} />
         </div>
     )
 }

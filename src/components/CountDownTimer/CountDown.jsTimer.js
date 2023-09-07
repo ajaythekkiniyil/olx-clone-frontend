@@ -15,9 +15,7 @@ function CountDowmTimer({ seconds, setSeconds, handleModalCloseButton }) {
         else if (seconds === 0) {
             clearInterval(interval);
             handleModalCloseButton()
-            toast.error('OTP timeout !', {
-                position: toast.POSITION.TOP_RIGHT
-            });
+            toast.error('OTP timeout !');
         }
 
         return () => clearInterval(interval);
